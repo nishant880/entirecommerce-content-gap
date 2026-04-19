@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080" font-family="-apple-system, 'Poppins', 'Inter', sans-serif">
+  <!-- Background -->
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="10%" r="70%">
+      <stop offset="0%" stop-color="#75e9d2" stop-opacity="0.10"/>
+      <stop offset="60%" stop-color="#75e9d2" stop-opacity="0.00"/>
+    </radialGradient>
+    <linearGradient id="cardGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#111119"/>
+      <stop offset="100%" stop-color="#0d0d14"/>
+    </linearGradient>
+  </defs>
+  <rect width="1080" height="1080" fill="#08080d"/>
+  <rect width="1080" height="1080" fill="url(#bgGlow)"/>
+
+  <!-- Top label -->
+  <text x="540" y="96" text-anchor="middle" fill="#75e9d2" font-size="20" font-weight="600" letter-spacing="4" font-family="'Poppins', sans-serif">FREE FOR FOUNDER-LED DTC BRANDS</text>
+
+  <!-- Title -->
+  <text x="540" y="170" text-anchor="middle" fill="#ffffff" font-size="68" font-weight="800" font-family="'Montserrat', sans-serif" letter-spacing="-2">AI Content Gap + AEO Audit</text>
+
+  <!-- Subtitle -->
+  <text x="540" y="220" text-anchor="middle" fill="#9494ad" font-size="24" font-weight="400">Ten deliverables. Double-hit synthesis. Delivered in an hour.</text>
+
+  <!-- 10 cards: 2 cols × 5 rows -->
+  <g font-family="'Poppins', sans-serif">
+    <!-- 01 Own Content Audit -->
+    <g transform="translate(40 270)">
+      <rect width="480" height="112" rx="14" fill="url(#cardGrad)" stroke="#1a1a24" stroke-width="1"/>
+      <text x="24" y="40" fill="#75e9d2" font-size="14" font-weight="700" letter-spacing="3">01 · OWN CONTENT AUDIT</text>
+      <text x="24" y="74" fill="#ffffff" font-size="22" font-weight="600">What you have and what ranks</text>
+      <text x="24" y="98" fill="#9494ad" font-size="15">Inventory · index state · GSC queries · impressions</text>
+    </g>
+
+    <!-- 02 Competitor Content -->
+    <g transform="translate(560 270)">
+      <rect width="480" height="112" rx="14" fill="url(#cardGrad)" stroke="#1a1a24" stroke-width="1"/>
+      <text x="24" y="40" fill="#75e9d2" font-size="14" font-weight="700" letter-spacing="3">02 · COMPETITOR CONTENT</text>
+      <text x="24" y="74" fill="#ffffff" font-size="22" font-weight="600">Top-performing pages and clusters</text>
+      <text x="24" y="98" fill="#9494ad" font-size="15">Ahrefs top-100 per competitor · traffic patterns</text>
+    </g>
+
+    <!-- 03 Keyword Gap -->
+    <g transform="translate(40 396)">
+      <rect width="480" height="112" rx="14" fill="url(#cardGrad)" stroke="#1a1a24" stroke-width="1"/>
+      <text x="24" y="40" fill="#75e9d2" font-size="14" font-weight="700" letter-spacing="3">03 · KEYWORD GAP</text>
+      <text x="24" y="74" fill="#ffffff" font-size="22" font-weight="600">Winnable terms competitors own</text>
+      <text x="24" y="98" fill="#9494ad" font-size="15">KD under 40 · volume 30+ · across 3-5 competitors</text>
+    </g>
+
+    <!-- 04 AEO Citation Audit -->
+    <g transform="translate(560 396)">
+      <rect width="480" height="112" rx="14" fill="url(#cardGrad)" stroke="#1a1a24" stroke-width="1"/>
+      <text x="24" y="40" fill="#75e9d2" font-size="14" font-weight="700" letter-spacing="3">04 · AEO CITATION AUDIT</text>
+      <text x="24" y="74" fill="#ffffff" font-size="22" font-weight="600">Where LLMs cite competitors</text>
+      <text x="24" y="98" fill="#9494ad" font-size="15">ChatGPT, Claude, Perplexity, AI Overview · 30-50 queries</text>
+    </g>
+
+    <!-- 05 SERP Intent Map -->
+    <g transform="translate(40 522)">
+      <rect width="480" height="112" rx="14" fill="url(#cardGrad)" stroke="#1a1a24" stroke-width="1"/>
+      <text x="24" y="40" fill="#75e9d2" font-size="14" font-weight="700" letter-spacing="3">05 · SERP INTENT MAP</text>
+      <text x="24" y="74" fill="#ffffff" font-size="22" font-weight="600">Informational to transactional mix</text>
+      <text x="24" y="98" fill="#9494ad" font-size="15">Clustered by search intent · buyer-journey stage</text>
+    </g>
+
+    <!-- 06 Opportunity Scoring -->
+    <g transform="translate(560 522)">
+      <rect width="480" height="112" rx="14" fill="url(#cardGrad)" stroke="#1a1a24" stroke-width="1"/>
+      <text x="24" y="40" fill="#75e9d2" font-size="14" font-weight="700" letter-spacing="3">06 · OPPORTUNITY SCORING</text>
+      <text x="24" y="74" fill="#ffffff" font-size="22" font-weight="600">Ranked by volume, ease, AEO fit</text>
+      <text x="24" y="98" fill="#9494ad" font-size="15">Composite score · commercial intent · effort estimate</text>
+    </g>
+
+    <!-- 07 Pillar + Cluster Architecture -->
+    <g transform="translate(40 648)">
+      <rect width="480" height="112" rx="14" fill="url(#cardGrad)" stroke="#1a1a24" stroke-width="1"/>
+      <text x="24" y="40" fill="#75e9d2" font-size="14" font-weight="700" letter-spacing="3">07 · PILLAR + CLUSTER MAP</text>
+      <text x="24" y="74" fill="#ffffff" font-size="22" font-weight="600">Four to eight pillars you can own</text>
+      <text x="24" y="98" fill="#9494ad" font-size="15">Pillar pages + 8-20 sub-topics each</text>
+    </g>
+
+    <!-- 08 Top 10 Content Briefs -->
+    <g transform="translate(560 648)">
+      <rect width="480" height="112" rx="14" fill="url(#cardGrad)" stroke="#1a1a24" stroke-width="1"/>
+      <text x="24" y="40" fill="#75e9d2" font-size="14" font-weight="700" letter-spacing="3">08 · TOP 10 CONTENT BRIEFS</text>
+      <text x="24" y="74" fill="#ffffff" font-size="22" font-weight="600">Production-ready briefs to ship</text>
+      <text x="24" y="98" fill="#9494ad" font-size="15">Target keyword · intent · angle · AEO H2s · schema</text>
+    </g>
+
+    <!-- 09 30-60-90 Publishing Roadmap -->
+    <g transform="translate(40 774)">
+      <rect width="480" height="112" rx="14" fill="url(#cardGrad)" stroke="#1a1a24" stroke-width="1"/>
+      <text x="24" y="40" fill="#75e9d2" font-size="14" font-weight="700" letter-spacing="3">09 · 30-60-90 ROADMAP</text>
+      <text x="24" y="74" fill="#ffffff" font-size="22" font-weight="600">Priority queue for the next 90 days</text>
+      <text x="24" y="98" fill="#9494ad" font-size="15">Cluster order · cadence · dependencies</text>
+    </g>
+
+    <!-- 10 Cross-source synthesis -->
+    <g transform="translate(560 774)">
+      <rect width="480" height="112" rx="14" fill="#75e9d2" stroke="#75e9d2" stroke-width="1"/>
+      <text x="24" y="40" fill="#08080d" font-size="14" font-weight="700" letter-spacing="3">10 · CROSS-SOURCE SYNTHESIS</text>
+      <text x="24" y="74" fill="#08080d" font-size="22" font-weight="700">Double-hit clusters to ship first</text>
+      <text x="24" y="98" fill="#08080d" font-size="15" opacity="0.80">Keywords with SERP gap AND LLM citation gap together</text>
+    </g>
+  </g>
+
+  <!-- Bottom bar: URL + CTA -->
+  <g transform="translate(0 924)">
+    <line x1="40" y1="0" x2="1040" y2="0" stroke="#1a1a24" stroke-width="1"/>
+    <text x="40" y="54" fill="#9494ad" font-size="20" font-weight="500">Delivered as one Word doc + markdown source in your GitHub repo.</text>
+    <text x="40" y="104" fill="#ffffff" font-size="36" font-weight="700" font-family="'Montserrat', sans-serif" letter-spacing="-0.5">entir<tspan fill="#75e9d2">ecommerce.ai</tspan><tspan fill="#9494ad">/playbooks/content-gap</tspan></text>
+  </g>
+</svg>
