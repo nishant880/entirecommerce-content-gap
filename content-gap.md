@@ -128,16 +128,40 @@ Deliverable: per-competitor CSV plus a 150-word narrative per competitor.
 
 ### Section 3. Keyword gap
 
-Set-difference analysis.
+Set-difference analysis, then consolidation.
 - Pull the client's ranking keywords (top 100) via DataForSEO `labs_ranked_keywords` or GSC top-queries export.
 - Pull each competitor's ranking keywords the same way.
-- For each competitor, compute `competitor_keywords - client_keywords` in Python. Union across all competitors to form the full gap list.
+- For each competitor, compute `competitor_keywords - client_keywords` in Python. Save per-competitor output as `keyword-gap-vs-{competitor}.csv`.
+- **Union across all competitors into one deduped master dataset.** For each keyword in the union, compute `num_competitors_ranking`, `aggregate_volume` (max observed across competitors, since one query has one underlying volume), `max_difficulty`, `best_competitor_position`, `client_ranks` (boolean).
 - Filter to keywords with KD under 40 and monthly volume above 30. Relax to KD 60 for high-authority brands.
 - Enrich each surviving keyword: SERP intent (informational, commercial, transactional, navigational), CPC, SERP features present.
+- Score each keyword: `opportunity = aggregate_volume × num_competitors_ranking × max(1, 101 - max_difficulty) × (1 if not client_ranks else 0.3)`. The `(101 - max_difficulty)` factor keeps the score positive across DataForSEO's 0-100 KD scale. Rank descending.
 
-Deliverable: `data/content-gap/{YYYY-MM-DD}/keyword-gap-raw.csv` plus a 200-word narrative on the 3 to 5 themes dominating the gap.
+Deliverables:
+- `data/content-gap/{YYYY-MM-DD}/keyword-gap-consolidated.csv` (unioned, enriched, scored master). This is the primary keyword artefact.
+- `data/content-gap/{YYYY-MM-DD}/keyword-gap-vs-{competitor}.csv` (per-competitor raw output, retained as evidence).
+- A 200-word narrative on the 3 to 5 themes dominating the gap.
 
 **Critical tool-note:** do not use `seo_toolkit.py keyword-research` gap mode or DataForSEO `labs_keyword_intersection`. Both return intersections (keywords both domains rank for) when the analysis needs the set difference. Compute the delta manually in Python.
+
+**On-page-signal fallback.** When DataForSEO and Ahrefs are both unavailable: WebFetch each competitor's and the client's homepage, top 10 nav links, top 5 collection pages, top 5 PDPs, blog index. Extract titles, meta descriptions, H1/H2 blocks, URL slug tokens, schema markup, anchor text. Produce `fallback-onpage-signals.csv` per domain. Run Section 3 consolidation on this reduced dataset and label deliverables "on-page signals only, no ranking or volume data". Sections 4 through 8 still run on the reduced universe; be honest about its limitations in the narrative.
+
+### Section 3.5. SERP-feature mining
+
+PAA questions, related searches, and Google autocomplete reveal how buyers phrase queries in their own words. These frequently diverge from the head-term vocabulary the ranked-keyword pull captures. Mining them surfaces long-tail refinements, FAQ candidates, and AEO-extractable angles the Section 3 set-difference misses.
+
+For the top 20 to 30 head-term queries from the consolidated universe (sorted by opportunity score, skipping any the client already owns position 1):
+- Serper `/search` on each head-term. Parse `peopleAlsoAsk[]` and `relatedSearches[]`.
+- Serper `/autocomplete` on each head-term plus pattern-completions: `{head_term}`, `best {head_term}`, `how to {head_term}`.
+- If Serper is unavailable: `WebSearch` returns related-searches reliably. Autocomplete fallback is a manual incognito-Chrome capture exported to CSV.
+
+Compile output: `data/content-gap/{YYYY-MM-DD}/serp-features-mined.csv` with columns: head_term, feature_type (paa / related / autocomplete), text, implied_intent, semantic_cluster.
+
+Cluster the mined phrases against the Section 3 keyword clusters. Phrases that do not fit any existing cluster typically surface a new long-tail cluster the gap analysis missed; flag these explicitly.
+
+Any mined phrase the client's existing content does not address becomes a candidate for: an FAQ block on an existing page, an H3 section inside an existing pillar, or a dedicated page where volume justifies it. This output feeds directly into Section 7 pillar planning and Section 4 AEO citation remediation.
+
+Deliverable: `serp-features-mined.csv` plus a 150-word narrative on the 3 to 5 most surprising buyer-language patterns.
 
 ### Section 4. AEO citation audit
 
